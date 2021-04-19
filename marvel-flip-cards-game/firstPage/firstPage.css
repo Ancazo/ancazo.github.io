@@ -1,0 +1,61 @@
+html {
+  font-family: sans-serif;
+}
+
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: black; */
+  height: 100vh;
+}
+
+#logo {
+    margin-top: 20vh;
+    width: 100vh;
+    margin: 0;
+    /* filter: drop-shadow(0 0 30rem white); */
+    /* filter: invert(1); */
+    /* filter: hue-rotate(); */
+}
+
+#title-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#marvel-logo {
+    height: 200px;
+}
+
+#game-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 24px;
+}
+
+#play-button {
+  margin: auto;
+  font-size: xx-large;
+  width: 200px;
+}
+
+#game-mode {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+}
+
+.game-mode-choices {
+  margin: 24px 16px;
+  width: 100px;
+}
+
+#high-score-button {
+  margin: 24px auto;
+  font-size: x-large;
+}

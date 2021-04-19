@@ -1,0 +1,40 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#raccoon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: image('marvel-flip-cards-game\assets\logoBlackBg.png'); */
+}
+
+#logo {
+  width: 100vw;
+  margin: 0;
+  background-size: cover;
+}
+
+html {
+  background: linear-gradient(-45deg, red, red, orange, yellow, green, cyan);
+  background-size: 150% ;
+  animation: bgColourChanger 3s ease infinite;
+}
+
+@keyframes bgColourChanger {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
