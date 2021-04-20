@@ -2,50 +2,62 @@ html {
   font-family: sans-serif;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 0;
+  height: 100vh;
+}
+
 #raccoon-logo {
   position: absolute;
+  height: 15vh;
+  left: 0;
+  top: 0;
 }
 
 #title-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
-}
-
-#raccoon-logo {
-  height: 10vh;
+    height: 10vh;
 }
 
 #marvel-logo {
     height: 4em;
 }
-#title-container {
-  height: 4em;
-  
-}
+
 #game-title {
   border-top: 4px solid black;
   border-bottom: 4px solid black;
   border-right: 4px solid black;
+  font-size: xx-large;
+  font-weight: 500;
   margin: 0;
-  height: 100%;
+  /* line-height: 1; */
+  height: 64px;
+  /* box-sizing: content-box; */
 }
 
-#marvel-main {
-  display: flex;
-  justify-content: center;
+#main-picture {
+  width: 500px;
 }
 
-#game-buttons {
+#game-mode {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: 24px;
+  margin: 24px 0 0 0;
+}
+
+#player {
+  margin-top: 24px;
+  margin-bottom: 0;
+  width: 50vw;
 }
 
 #play-button {
-  margin: auto;
+  margin: 24px 0 0 0;
   font-size: xx-large;
   width: 200px;
 }
@@ -67,16 +79,6 @@ html {
   margin: 0;
 }
 
-#player {
-  display: flex;
-  justify-content: center;
-  width: 50vw;
-  margin: auto;
-}
-
-#play-button {
-  margin-top: 1em;
-}
 
 #high-score-button {
   margin: 24px auto;
