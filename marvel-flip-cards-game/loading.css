@@ -23,7 +23,7 @@ body {
 html {
   background: linear-gradient(-45deg, red, red, orange, yellow, green, cyan);
   background-size: 150% ;
-  animation: bgColourChanger 5s ease infinite;
+  animation: bgColourChanger 3s ease infinite;
 }
 
 @keyframes bgColourChanger {

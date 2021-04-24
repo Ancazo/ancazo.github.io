@@ -1,3 +1,3 @@
-// let redirectToMainPage = setTimeout(function() {
-//     window.location='firstPage/firstPage.html'
-// }, 5000);
+let redirectToMainPage = setTimeout(function() {
+    window.location='firstPage/firstPage.html'
+}, 3000);

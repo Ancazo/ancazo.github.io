@@ -1,5 +1,6 @@
 html {
   font-family: sans-serif;
+  animation: fadein 1s ease;
 }
 
 body {
@@ -13,8 +14,8 @@ body {
 #raccoon-logo {
   position: absolute;
   height: 15vh;
-  left: 0;
-  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #title-wrapper {
@@ -83,4 +84,16 @@ body {
 #high-score-button {
   margin: 24px auto;
   font-size: x-large;
+}
+
+
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+
+  }
 }
