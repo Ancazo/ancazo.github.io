@@ -12,12 +12,71 @@ const startTimer = () => {
 // click counter
 let noOfClicks = 0
 
+//start the timer
 startTimer()
 
-// Game Logic
 
-let flipCards = document.querySelectorAll('.flip-card')
-let flipCardsInner = document.querySelectorAll('.flip-card-inner')
+
+//picture array for 4 x 4
+const pictureArrayFourXFour = [
+    '../assets/card-pictures/ironman-landscape.png',
+    '../assets/card-pictures/blackpanter.png',
+    '../assets/card-pictures/captian-america.jpg',
+    '../assets/card-pictures/hawkeye.jpg',
+    '../assets/card-pictures/hulk.jpg',
+    '../assets/card-pictures/vision.jpg',
+    '../assets/card-pictures/thor.png',
+    '../assets/card-pictures/black-widow.png'
+]
+
+const frontCardPicture = '../assets/marvel-logo.png'
+
+
+
+const createCardsFourXFour = () => {
+
+    // for (let i = 0; i < 8; i++) {
+        // console.log('test')
+        let card = document.createElement('div')
+        card.setAttribute('class', 'card')
+        // console.log(card)
+        document.querySelector('#card-box').appendChild(card)
+        
+        // let flipCard = document.createElement('div')
+        // flipCard.attributes('class', 'flip-card')
+        // card.appendChild(flipCard)
+        
+        // let flipCardInner = document.createElement('div')
+        // flipCardInner.attributes('class', 'flip-card-inner')
+        // flipCard.appendChild(flipCardInner)
+        
+        // let flipCardFront = document.createElement('div')
+        // flipCardFront.attributes('class', 'flip-card-front')
+        // flipCardInner.appendChild(flipCardFront)
+        
+        // let flipCardFrontImage = document.createElement('img')
+        // flipCardFrontImage.attributes('class', 'card-image')
+        // flipCardFrontImage.attributes('src', frontCardPicture)
+        // flipCardFrontImage.attributes('alt', 'card-front')
+        // flipCardFront.appendChild(flipCardFrontImage)
+        
+        // let flipCardBack = document.createElement('div')
+        // flipCardBack.attributes('class', 'flip-card-back')
+        // flipCardInner.appendChild(flipCardBack)
+        
+        // let flipCardBackImage = document.createElement('img')
+        // flipCardBackImage.attributes('class', 'card-image')
+        // flipCardBackImage.attributes('src', pictureArrayFourXFour[0])
+        // flipCardBackImage.attributes('alt', 'card-back')
+        // flipCardFront.appendChild(flipCardBackImage)
+    // }
+}
+
+// createCardsFourXFour()
+
+
+// Game Logic
+let flipCards = document.querySelectorAll('.card')
 
 // array for opened cards
 let openedCardImageSource = [];
