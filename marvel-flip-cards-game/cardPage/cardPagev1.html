@@ -1,19 +1,51 @@
 <!doctype html>
 <html>
     <head>
-        <link href="firstPageV1.css" rel="stylesheet">
+        <link href="cardPageV1.css" rel="stylesheet">
 
 
         <title>Marval Flip Cards</title>
     </head>
 
     <body>
-        <h1>Card Game Page</h1>
+        <div id="card-area">
+            <div id="actual-card-space">
 
+            </div>
+            <div id="non-card-space">
+
+            </div>
+        </div>
+
+        <div id="game-information">
+            <div id="stop-reset">
+                <div id="stop" class="stop-reset-container">
+                    <p class="stop-counter-word">Stop</p>
+                    <img class="stop-reset-image" src="../assets/stop.png" alt="stop">
+                </div>
+                <div id="reset" class="stop-reset-container with-top-padding">
+                    <p>Reset</p>
+                    <img class="stop-reset-image" src="../assets/reset.png" alt="reset">
+                </div>
+            </div>
+
+            
+            <div id="timer-counter-container">
+                <img id="raccoon-logo" src="../assets/simon_logo-removebg-preview.png" alt="marvel-logo" >
+                <div id="timer" class="timer-counter">
+                    <p>Timer:</p>
+                    <p>0</p>
+                </div>
+                <div id="counter" class="timer-counter with-top-padding">
+                    <p class="stop-counter-word">Counter:</p>
+                    <p>0</p>
+                </div>
+            </div>
 
         </div>
 
-            
+        <script src="cardPageV1.js"></script>
+
     </body>
 
 </html>

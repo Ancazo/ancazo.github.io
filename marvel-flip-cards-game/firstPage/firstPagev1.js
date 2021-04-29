@@ -19,7 +19,7 @@ const gameModeSelect = (event) => {
         let gameMode = document.querySelector(`#${i}`)
         gameMode.style.background = '#fe9a20';
     }
-    // checkIfCanStart()
+    // checkIfCanStart()`
 }
 
 const gameModeButtons = document.querySelectorAll('.game-mode');
@@ -30,14 +30,15 @@ for ( let button of gameModeButtons) {
 
 const startButton = document.querySelector('#start-button');
 
-const checkIfCanStart = () => {
+const checkIfCanStart = (e) => {
     if (gameModeSelected !==undefined && document.querySelector('#name-input').value !=='') {
         startButton.disabled = false;
         startButton.style.background = '#a80108'
         startButton.onmouseover = function () {
-            startButton.style.background = '#f3f2c4'
-        }
+        startButton.style.background = '#f3f2c4'
+        } 
     }
 }
 
-document.querySelector('#name-input').addEventListener('change',checkIfCanStart)
+// document.querySelector('#name-input').addEventListener('change',checkIfCanStart)
+document.querySelector('#name-input').oninput = checkIfCanStart

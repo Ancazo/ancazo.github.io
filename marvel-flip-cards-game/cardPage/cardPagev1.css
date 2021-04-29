@@ -1,0 +1,92 @@
+html {
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    margin: 80px 0;
+    background-color: hsl(202, 70%, 19%);
+    flex: 1;
+}
+
+#card-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+    background-color: #3baabe;
+    border: 20px solid white;
+    border-bottom-right-radius: 200px;
+    border-top-right-radius: 200px;
+    border-left:0 ;
+}
+
+#actual-card-space {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    flex: 1;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#non-card-space {
+    width: 180px;
+}
+
+#game-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.stop-reset-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: xx-large;
+    color: white;
+}
+
+.stop-reset-image {
+    width: 36px;
+    margin-left: 16px;
+    filter: invert();
+}
+
+#raccoon-logo {
+    width: 150px;
+    filter: invert();
+}
+
+
+.timer-counter {
+    display: flex;
+    justify-content: space-between;
+    font-size: xx-large;
+    color: white;
+}
+
+p {
+    margin: 0;
+}
+
+.with-top-padding {
+    padding-top: 16px;
+}
+
+.cards {
+    /* background: red; */
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 8px;
+    flex:1;
+}
+
+#card0 {
+    background-size: auto;
+}
