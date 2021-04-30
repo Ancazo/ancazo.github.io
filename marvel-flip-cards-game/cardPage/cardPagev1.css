@@ -25,6 +25,7 @@ body {
 
 #actual-card-space {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     height: 100%;
     flex: 1;
@@ -79,14 +80,91 @@ p {
 }
 
 .cards {
-    /* background: red; */
+    position: relative;    
+    background: red;
     border: 1px solid black;
     box-sizing: border-box;
     border-radius: 16px;
     margin: 8px;
     flex:1;
+    perspective: 1000px; 
 }
 
-#card0 {
-    background-size: auto;
+.cards, .cardBack, .cardFront{
+    /* transform: rotateY(180deg);
+    transition: 1s ; */
+    transform-style: preserve-3d;
+}
+
+.cardFront {
+    position:absolute;
+    background:red ;
+    border-radius: 16px;
+    top:0;
+}
+
+.cardBack {
+    /* z-index: -100; */
+    border-radius: 16px;
+    transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center;
+    backface-visibility: hidden;
+}
+
+/* for end game */
+#game-over {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+#transparent-layer {
+    background-color: black;
+    position: absolute;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+#game-over-message {
+    display: flex;
+    align-items: center;
+    padding: 16px 32px 0 ;
+    background-color: white;
+    border-radius: 32px;
+    z-index: 1;
+}
+
+#winning-picture {
+    height: 300px;
+}
+
+#message-box {
+    display: flex;
+    margin-top: -16px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-button {
+    font-size: 32px;
+    padding: 0 16px;
+    border: 2px solid ;
+    border-radius: 8px;
+}
+
+#home-button:hover {
+    background: lightblue;
+    transition: 1s;
 }
