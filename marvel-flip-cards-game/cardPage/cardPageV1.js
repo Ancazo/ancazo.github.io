@@ -1,4 +1,4 @@
-const pictureArray = [
+let pictureArray = [
     '../assets/card-pictures/ironman-landscape.png',
     '../assets/card-pictures/blackpanter.png',
     '../assets/card-pictures/captian-america.jpg',
@@ -9,15 +9,30 @@ const pictureArray = [
     '../assets/card-pictures/black-widow.png'
 ]
 
+
+//front card picture
+const frontCardPicture = '../assets/marvel-logo.png'
+
+//test local storage
+console.log(localStorage.getItem('gameModeSelected'))
+
+//decide is 12 or 16 cards
+let noOfCards = 16
+
+if (localStorage.getItem('gameModeSelected') === 'gameMode1' ) {
+    noOfCards = 12;
+    //reduce array size to 6
+    pictureArray = pictureArray.slice(2)
+}
+
+//double length of array
 const doublePictureArray = pictureArray.concat(pictureArray)
 
 //random the pictures in array
 doublePictureArray.sort(()=>Math.random()-0.5)
-// console.log(doublePictureArray)
+console.log(doublePictureArray)
 
-const frontCardPicture = '../assets/marvel-logo.png'
-
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < noOfCards; i++) {
     const cardArea = document.querySelector('#actual-card-space')
     const newCard = document.createElement('div')
     newCard.setAttribute('class','cards')
@@ -63,6 +78,8 @@ const startTimer = () => {
 //start the timer
 // startTimer()
 
+
+//game logic function
 const gameLogic = (event) => {
     clickCounter += 1
     document.querySelector('#click-counter').innerHTML = clickCounter
@@ -110,7 +127,7 @@ for (const flipCard of flipCards) {
     flipCard.addEventListener("click", gameLogic)
 }
 
-
+//winning condition checker
 const winningCondition = () => {
     if (noOfPairedCardsOpen === 8) {
         let newDivGameOver = document.createElement('div')
@@ -154,6 +171,7 @@ const winningCondition = () => {
         let homeButton = document.createElement('button')
         homeButton.setAttribute('type', 'button')
         homeButton.setAttribute('id', 'home-button')
+        homeButton.style.background = '#fe9a20'
         homeButton.innerHTML = 'Home'
         newDivGameOverWinningMessage.appendChild(homeButton)
 

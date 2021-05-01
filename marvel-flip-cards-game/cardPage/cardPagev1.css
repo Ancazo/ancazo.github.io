@@ -9,6 +9,7 @@ body {
     margin: 80px 0;
     background-color: hsl(202, 70%, 19%);
     flex: 1;
+    animation: fadein 1s ease;
 }
 
 #card-area {
@@ -165,6 +166,18 @@ p {
 }
 
 #home-button:hover {
-    background: lightblue;
+    background: #e95146;
     transition: 1s;
 }
+
+
+@keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+  
+    }
+  }
+  

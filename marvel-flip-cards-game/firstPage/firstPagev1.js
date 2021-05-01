@@ -19,7 +19,9 @@ const gameModeSelect = (event) => {
         let gameMode = document.querySelector(`#${i}`)
         gameMode.style.background = '#fe9a20';
     }
-    // checkIfCanStart()`
+    
+    //store game mode in local storage
+    localStorage.setItem('gameModeSelected',gameModeSelected)
 }
 
 const gameModeButtons = document.querySelectorAll('.game-mode');
