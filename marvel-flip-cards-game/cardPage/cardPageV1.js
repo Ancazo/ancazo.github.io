@@ -76,7 +76,7 @@ const startTimer = () => {
 }
 
 //start the timer
-// startTimer()
+startTimer()
 
 
 //game logic function
@@ -127,58 +127,66 @@ for (const flipCard of flipCards) {
     flipCard.addEventListener("click", gameLogic)
 }
 
+
+const displayWinningMessage = () => {
+
+    let newDivGameOver = document.createElement('div')
+    newDivGameOver.setAttribute('id', 'game-over')
+    document.querySelector('body').appendChild(newDivGameOver)
+    
+    let newDivGameOverlayer = document.createElement('div')
+    newDivGameOverlayer.setAttribute('id', 'transparent-layer')
+    newDivGameOver.appendChild(newDivGameOverlayer)
+
+    let newDivGameOverMessage = document.createElement('div')
+    newDivGameOverMessage.setAttribute('id', 'game-over-message')
+    newDivGameOver.appendChild(newDivGameOverMessage)
+    
+    let newDivGameOverPicture = document.createElement('img')
+    newDivGameOverPicture.setAttribute('id', 'winning-picture')
+    newDivGameOverPicture.setAttribute('src', '../assets/win.png')
+    newDivGameOverPicture.setAttribute('alt', 'win')
+    newDivGameOverMessage.appendChild(newDivGameOverPicture)
+
+    let newDivGameOverWinningMessage = document.createElement('div')
+    newDivGameOverWinningMessage.setAttribute('id', 'message-box')
+    newDivGameOverMessage.appendChild(newDivGameOverWinningMessage)
+    
+    let congratulations = document.createElement('h1')
+    congratulations.innerHTML ='Congratulations'
+    newDivGameOverWinningMessage.appendChild(congratulations)
+    
+    let winningMessage = document.createElement('p')
+    winningMessage.innerHTML ='You had completed the game!'
+    newDivGameOverWinningMessage.appendChild(winningMessage)
+    
+    let finalCount = document.createElement('h4')
+    finalCount.innerHTML =`Count: ${clickCounter}`
+    newDivGameOverWinningMessage.appendChild(finalCount)
+    
+    let finaltimer = document.createElement('h4')
+    finaltimer.innerHTML =`Timer: ${second}`
+    newDivGameOverWinningMessage.appendChild(finaltimer)
+    
+    let homeButton = document.createElement('button')
+    homeButton.setAttribute('type', 'button')
+    homeButton.setAttribute('id', 'home-button')
+    homeButton.style.background = '#fe9a20'
+    homeButton.innerHTML = 'Home'
+    newDivGameOverWinningMessage.appendChild(homeButton)
+    
+    const backToHome = () => {
+        window.location='../firstPage/firstPageV1.html'
+    }
+    
+    document.querySelector('#home-button').addEventListener('click', backToHome)
+}
+
 //winning condition checker
 const winningCondition = () => {
-    if (noOfPairedCardsOpen === 8) {
-        let newDivGameOver = document.createElement('div')
-        newDivGameOver.setAttribute('id', 'game-over')
-        document.querySelector('body').appendChild(newDivGameOver)
-
-        let newDivGameOverlayer = document.createElement('div')
-        newDivGameOverlayer.setAttribute('id', 'transparent-layer')
-        newDivGameOver.appendChild(newDivGameOverlayer)
-
-        let newDivGameOverMessage = document.createElement('div')
-        newDivGameOverMessage.setAttribute('id', 'game-over-message')
-        newDivGameOver.appendChild(newDivGameOverMessage)
-
-        let newDivGameOverPicture = document.createElement('img')
-        newDivGameOverPicture.setAttribute('id', 'winning-picture')
-        newDivGameOverPicture.setAttribute('src', '../assets/win.png')
-        newDivGameOverPicture.setAttribute('alt', 'win')
-        newDivGameOverMessage.appendChild(newDivGameOverPicture)
-
-        let newDivGameOverWinningMessage = document.createElement('div')
-        newDivGameOverWinningMessage.setAttribute('id', 'message-box')
-        newDivGameOverMessage.appendChild(newDivGameOverWinningMessage)
-
-        let congratulations = document.createElement('h1')
-        congratulations.innerHTML ='Congratulations'
-        newDivGameOverWinningMessage.appendChild(congratulations)
-
-        let winningMessage = document.createElement('p')
-        winningMessage.innerHTML ='You had completed the game!'
-        newDivGameOverWinningMessage.appendChild(winningMessage)
-
-        let finalCount = document.createElement('h4')
-        finalCount.innerHTML =`Count: ${clickCounter}`
-        newDivGameOverWinningMessage.appendChild(finalCount)
-
-        let finaltimer = document.createElement('h4')
-        finaltimer.innerHTML =`Timer: ${second}`
-        newDivGameOverWinningMessage.appendChild(finaltimer)
-
-        let homeButton = document.createElement('button')
-        homeButton.setAttribute('type', 'button')
-        homeButton.setAttribute('id', 'home-button')
-        homeButton.style.background = '#fe9a20'
-        homeButton.innerHTML = 'Home'
-        newDivGameOverWinningMessage.appendChild(homeButton)
-
-        const backToHome = () => {
-            window.location='../firstPage/firstPageV1.html'
-        }
-        
-        document.querySelector('#home-button').addEventListener('click', backToHome)
+    if (localStorage.getItem('gameModeSelected') === 'gameMode2' && noOfPairedCardsOpen === 8) {
+        displayWinningMessage()
+    } else if( localStorage.getItem('gameModeSelected') === 'gameMode1' && noOfPairedCardsOpen === 6) {
+        displayWinningMessage()
     }
 }
