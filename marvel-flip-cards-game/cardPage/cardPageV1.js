@@ -193,3 +193,18 @@ const winningCondition = () => {
         displayWinningMessage()
     }
 }
+
+
+//reset the game
+const reload = () => {
+    location.reload()
+}
+
+document.querySelector('#reset').addEventListener('click', reload)
+
+//quit the game
+const quit = () => {
+    window.location='../firstPage/firstPageV1.html'
+}
+
+document.querySelector('#stop').addEventListener('click', quit)
