@@ -37,7 +37,7 @@ const checkIfCanStart = (e) => {
         startButton.disabled = false;
         startButton.style.background = '#a80108'
         startButton.onmouseover = function () {
-        startButton.style.background = '#f3f2c4'
+        this.style.backgroundColor = '#e95146'
         } 
     }
 }

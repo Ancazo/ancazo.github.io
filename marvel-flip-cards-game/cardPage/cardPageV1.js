@@ -86,6 +86,7 @@ const gameLogic = (event) => {
 
     let frontToBack = event.currentTarget
     let backToFront = event.currentTarget.querySelector('.cardBack')
+    console.log(frontToBack.querySelector('.cardBack'))
 
     openedCardSelected.push(event.currentTarget.innerHTML)
     openedCardId.push(event.currentTarget)
@@ -107,10 +108,12 @@ const gameLogic = (event) => {
             openedCardId.pop()
         }
     } else if ((openedCardSelected.length === 2) && openedCardSelected[0] !== openedCardSelected[1]) {
-        openedCardId[0].querySelector('.cardBack').style.transform = 'rotateY(360deg)'
-        openedCardId[1].querySelector('.cardBack').style.transform = 'rotateY(360deg)'
-        openedCardId[0].querySelector('.cardFront').style.transform = 'rotateY(180deg)'
-        openedCardId[1].querySelector('.cardFront').style.transform = 'rotateY(180deg)'
+        openedCardId[0].style.transform = 'rotateY(360deg)'
+        openedCardId[1].style.transform = 'rotateY(360deg)'
+        openedCardId[0].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
+        openedCardId[1].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
+
+        
 
         for (let i = 2; i >= 0; i--) {
             openedCardSelected.pop()
@@ -118,8 +121,8 @@ const gameLogic = (event) => {
         }
     }
     // console.log(openedCardSelected)
-    // console.log(openedCardId[0])
-    console.log(noOfPairedCardsOpen)
+    console.log(openedCardId)
+    // console.log(noOfPairedCardsOpen)
 
 }
 
