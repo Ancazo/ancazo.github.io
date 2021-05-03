@@ -59,6 +59,11 @@ body {
     filter: invert();
 }
 
+.stop-reset-container:hover {
+    color: red;
+    transition: 0.5s;
+}
+
 #raccoon-logo {
     width: 150px;
     filter: invert();
