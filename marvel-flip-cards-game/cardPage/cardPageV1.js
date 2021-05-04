@@ -83,10 +83,12 @@ startTimer()
 const gameLogic = (event) => {
     clickCounter += 1
     document.querySelector('#click-counter').innerHTML = clickCounter
+    console.log(event)
 
     let frontToBack = event.currentTarget
+    // console.log(frontToBack)
     let backToFront = event.currentTarget.querySelector('.cardBack')
-    console.log(frontToBack.querySelector('.cardBack'))
+    // console.log(frontToBack.querySelector('.cardBack'))
 
     openedCardSelected.push(event.currentTarget.innerHTML)
     openedCardId.push(event.currentTarget)
@@ -99,7 +101,6 @@ const gameLogic = (event) => {
     backToFront.style.transformStyle = 'preserve-3d';
     backToFront.style.transition = '1s'
 
-
     if (openedCardSelected[0] === openedCardSelected[1]) {
         noOfPairedCardsOpen += 1
         winningCondition()
@@ -110,6 +111,8 @@ const gameLogic = (event) => {
     } else if ((openedCardSelected.length === 2) && openedCardSelected[0] !== openedCardSelected[1]) {
         openedCardId[0].style.transform = 'rotateY(360deg)'
         openedCardId[1].style.transform = 'rotateY(360deg)'
+        openedCardId[0].style.transition = '2s'
+        openedCardId[1].style.transition = '2s'
         openedCardId[0].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
         openedCardId[1].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
 
@@ -121,7 +124,7 @@ const gameLogic = (event) => {
         }
     }
     // console.log(openedCardSelected)
-    console.log(openedCardId)
+    // console.log(openedCardId)
     // console.log(noOfPairedCardsOpen)
 
 }
@@ -208,3 +211,18 @@ const quit = () => {
 }
 
 document.querySelector('#stop').addEventListener('click', quit)
+
+
+// $.ajax ({
+//     url:"https://gateway.marvel.com/v1/public/characters",
+//     method:"GET",
+//     ts: '1'
+//     apikey: '488d84cd14d1c4f5742f1171be6ec22b'
+//     hash: 'edd27ff0be3d3925d5fba3acf3b0f75b'
+//     headers: {
+//     },
+//     success: function(response) {
+//     },
+//     error: function (err) {
+//     }
+// })
