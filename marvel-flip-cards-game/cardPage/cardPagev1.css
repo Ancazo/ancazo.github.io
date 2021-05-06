@@ -94,24 +94,21 @@ p {
     margin: 8px;
     flex:1;
     perspective: 1000px; 
+    transform-style: preserve-3d;
+    transition: 1s;
 }
 
 .cards, .cardBack, .cardFront{
-    /* transform: rotateY(180deg);
-    transition: 1s ; */
     transform-style: preserve-3d;
 }
 
 .cardFront {
     position:absolute;
     background:red ;
-    border-radius: 16px;
     top:0;
 }
 
 .cardBack {
-    /* z-index: -100; */
-    border-radius: 16px;
     transform: rotateY(180deg);
 }
 
@@ -122,6 +119,8 @@ p {
     background-repeat: no-repeat;
     background-position:center;
     backface-visibility: hidden;
+    border-radius: 16px;
+
 }
 
 /* for end game */

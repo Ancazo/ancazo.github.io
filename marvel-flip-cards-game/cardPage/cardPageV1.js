@@ -80,26 +80,17 @@ startTimer()
 
 
 //game logic function
-const gameLogic = (event) => {
+const onClick = (event) => {
     clickCounter += 1
     document.querySelector('#click-counter').innerHTML = clickCounter
     console.log(event)
 
-    let frontToBack = event.currentTarget
-    // console.log(frontToBack)
-    let backToFront = event.currentTarget.querySelector('.cardBack')
-    // console.log(frontToBack.querySelector('.cardBack'))
+    const selectedCard = event.currentTarget
+    selectedCard.style.transform = 'rotateY(180deg)'
 
     openedCardSelected.push(event.currentTarget.innerHTML)
     openedCardId.push(event.currentTarget)
 
-    frontToBack.style.transform = 'rotateY(180deg)'
-    frontToBack.style.transition = '1s'
-    frontToBack.style.transformStyle = 'preserve-3d';
-
-    backToFront.style.transform = 'rotateY(180deg)'
-    backToFront.style.transformStyle = 'preserve-3d';
-    backToFront.style.transition = '1s'
 
     if (openedCardSelected[0] === openedCardSelected[1]) {
         noOfPairedCardsOpen += 1
@@ -116,8 +107,6 @@ const gameLogic = (event) => {
         openedCardId[0].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
         openedCardId[1].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
 
-        
-
         for (let i = 2; i >= 0; i--) {
             openedCardSelected.pop()
             openedCardId.pop()
@@ -130,7 +119,7 @@ const gameLogic = (event) => {
 }
 
 for (const flipCard of flipCards) {
-    flipCard.addEventListener("click", gameLogic)
+    flipCard.addEventListener("click", onClick)
 }
 
 
