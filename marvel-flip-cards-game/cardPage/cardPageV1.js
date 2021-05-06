@@ -100,22 +100,16 @@ const onClick = (event) => {
             openedCardId.pop()
         }
     } else if ((openedCardSelected.length === 2) && openedCardSelected[0] !== openedCardSelected[1]) {
-        openedCardId[0].style.transform = 'rotateY(360deg)'
-        openedCardId[1].style.transform = 'rotateY(360deg)'
-        openedCardId[0].style.transition = '2s'
-        openedCardId[1].style.transition = '2s'
-        openedCardId[0].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
-        openedCardId[1].querySelector('.cardBack').style.transform = 'rotateY(180deg)'
-
-        for (let i = 2; i >= 0; i--) {
-            openedCardSelected.pop()
-            openedCardId.pop()
-        }
+        openedCardId[1].style.transform = 'rotateY(180deg)'
+        setTimeout(() => {
+            openedCardId[0].style.transform = 'rotateY(360deg)'
+            openedCardId[1].style.transform = 'rotateY(360deg)'
+            for (let i = 2; i >= 0; i--) {
+                openedCardSelected.pop()
+                openedCardId.pop()
+            }
+        }, 1000);
     }
-    // console.log(openedCardSelected)
-    // console.log(openedCardId)
-    // console.log(noOfPairedCardsOpen)
-
 }
 
 for (const flipCard of flipCards) {
