@@ -30,7 +30,6 @@ const doublePictureArray = pictureArray.concat(pictureArray)
 
 //random the pictures in array
 doublePictureArray.sort(()=>Math.random()-0.5)
-console.log(doublePictureArray)
 
 for (let i = 0; i < noOfCards; i++) {
     const cardArea = document.querySelector('#actual-card-space')
@@ -54,19 +53,18 @@ for (let i = 0; i < noOfCards; i++) {
 }
 
 //Game Logic
-let flipCards = document.querySelectorAll('.cards')
+const flipCards = document.querySelectorAll('.cards')
 
-// array for opened cards
-let openedCardId = [];
-let openedCardSelected = [];
-let noOfPairedCardsOpen = 0
+let noOfPairedCardsOpen = 0;
+let selectedCard;
+const selectedCardSources = [];
 
 //click counter
 let clickCounter = 0
 
 //timer
 let second = 0
-let timer = document.querySelector("#timer-counter");
+const timer = document.querySelector("#timer-counter");
 let interval;
 const startTimer = () => {
     interval = setInterval(function(){
@@ -81,35 +79,31 @@ startTimer()
 
 //game logic function
 const onClick = (event) => {
-    clickCounter += 1
-    document.querySelector('#click-counter').innerHTML = clickCounter
-    console.log(event)
-
-    const selectedCard = event.currentTarget
-    selectedCard.style.transform = 'rotateY(180deg)'
-
-    openedCardSelected.push(event.currentTarget.innerHTML)
-    openedCardId.push(event.currentTarget)
-
-
-    if (openedCardSelected[0] === openedCardSelected[1]) {
-        noOfPairedCardsOpen += 1
-        winningCondition()
-        for (let i = 2; i >= 0; i--) {
-            openedCardSelected.pop()
-            openedCardId.pop()
+    const currentCard = event.currentTarget;
+    currentCard.style.transform = 'rotateY(180deg)';
+    const selectedSource = currentCard.innerHTML;
+    
+    if(!selectedCard){
+        selectedCard = currentCard
+        clickCounter += 1;
+        selectedCardSources.push(selectedSource)
+    } else if (currentCard.id === selectedCard.id) {
+        return
+    } else {
+        if (!selectedCardSources.includes(selectedSource)) {
+            selectedCardSources.pop();
+            setTimeout(() => {
+                currentCard.style.transform = 'rotateY(360deg)';
+                selectedCard.style.transform = 'rotateY(360deg)';
+            }, 1000);
         }
-    } else if ((openedCardSelected.length === 2) && openedCardSelected[0] !== openedCardSelected[1]) {
-        openedCardId[1].style.transform = 'rotateY(180deg)'
         setTimeout(() => {
-            openedCardId[0].style.transform = 'rotateY(360deg)'
-            openedCardId[1].style.transform = 'rotateY(360deg)'
-            for (let i = 2; i >= 0; i--) {
-                openedCardSelected.pop()
-                openedCardId.pop()
-            }
+            selectedCard = undefined;
         }, 1000);
+        clickCounter += 1;
+        checkWinningCondition()
     }
+    document.querySelector('#click-counter').innerHTML = clickCounter
 }
 
 for (const flipCard of flipCards) {
@@ -172,10 +166,10 @@ const displayWinningMessage = () => {
 }
 
 //winning condition checker
-const winningCondition = () => {
-    if (localStorage.getItem('gameModeSelected') === 'gameMode2' && noOfPairedCardsOpen === 8) {
+const checkWinningCondition = () => {
+    if (localStorage.getItem('gameModeSelected') === 'gameMode2' && selectedCardSources.length === 8) {
         displayWinningMessage()
-    } else if( localStorage.getItem('gameModeSelected') === 'gameMode1' && noOfPairedCardsOpen === 6) {
+    } else if( localStorage.getItem('gameModeSelected') === 'gameMode1' && selectedCardSources.length === 6) {
         displayWinningMessage()
     }
 }
