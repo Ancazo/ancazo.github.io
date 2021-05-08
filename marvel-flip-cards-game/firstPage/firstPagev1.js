@@ -1,5 +1,5 @@
 const startTheGame = () => {
-    window.location='../cardPage/cardPagev1.html'
+    window.location='../cardPage/cardPageV1.html'
 }
 
 document.querySelector('#start-button').addEventListener('click',startTheGame)
