@@ -69,7 +69,6 @@ body {
     filter: invert();
 }
 
-
 .timer-counter {
     display: flex;
     justify-content: space-between;
