@@ -4,7 +4,6 @@ const startTheGame = () => {
 
 document.querySelector('#start-button').addEventListener('click',startTheGame)
 
-
 // #e95146 === rgb(233, 81, 70)   dark orange
 // #fe9a20 rgba(168,1,8,255) orange
 const gameModes = ['gameMode1','gameMode2'];
